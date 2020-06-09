@@ -32,7 +32,18 @@
       "includeOriginalXaml": false,
       "privateWorkflows": []
     },
-    "fileInfoCollection": []
+    "fileInfoCollection": [
+      {
+        "editingStatus": "InProgress",
+        "testCaseId": "ba48145e-9b03-45ff-9539-3d79860dad03",
+        "fileName": "Selection of all work items_Test.xaml"
+      },
+      {
+        "editingStatus": "InProgress",
+        "testCaseId": "85e5678e-1fdf-4021-bc11-ecbf653405ac",
+        "fileName": "Clic Work Items.xaml"
+      }
+    ]
   },
   "expressionLanguage": "VisualBasic"
 }
