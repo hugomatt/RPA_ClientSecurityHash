@@ -1796,15 +1796,15 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\hmattioda\\.nuget\\packages\\": {}
+    "C:\\Users\\agombert\\.nuget\\packages\\": {}
   },
   "project": {
     "restore": {
       "projectUniqueName": "ClientSecurityHash",
       "projectName": "ClientSecurityHash",
-      "projectPath": "C:\\RPA\\RPA Formation\\Formation\\RPA_ClientSecurityHash\\.local",
-      "packagesPath": "C:\\Users\\hmattioda\\.nuget\\packages\\",
-      "outputPath": "C:\\RPA\\RPA Formation\\Formation\\RPA_ClientSecurityHash\\.local"
+      "projectPath": "C:\\Users\\agombert\\Documents\\ClientHashTest\\RPA_ClientSecurityHash\\.local",
+      "packagesPath": "C:\\Users\\agombert\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\agombert\\Documents\\ClientHashTest\\RPA_ClientSecurityHash\\.local"
     },
     "frameworks": {
       "net461": {
@@ -1842,13 +1842,5 @@
         }
       }
     }
-  },
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problem reading the cache file C:\\RPA\\RPA Formation\\Formation\\RPA_ClientSecurityHash\\.local\\nuget.cache : Unexpected character encountered while parsing value: <. Path '', line 0, position 0."
-    }
-  ]
+  }
 }
