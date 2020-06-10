@@ -1,11 +1,11 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Selection_of_all_work_Items_V2" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:aw="clr-namespace:AcmeLibrary.WorkItems;assembly=AcmeLibrary" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Selection_of_all_work_Items_V2" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:aw="clr-namespace:AcmeLibrary.WorkItems;assembly=AcmeLibrary" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
-    <x:Property Name="out_WorkItems" Type="OutArgument(sd:DataTable)" />
+    <x:Property Name="out_WI5" Type="OutArgument(sd:DataTable)" />
   </x:Members>
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>831.2,614.4</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>724.8,524</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Selection_of_all_work_Items_V2_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -56,25 +56,59 @@
       <AssemblyReference>UiPath.Excel</AssemblyReference>
       <AssemblyReference>UiPath.Mail</AssemblyReference>
       <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Selection_of_all_work_Items_V2" sap:VirtualizedContainerService.HintSize="304,259.2" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Selection_of_all_work_Items_V2" sap:VirtualizedContainerService.HintSize="375.2,359.2" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="sd:DataTable" Name="ExtractedValue" />
-      <Variable x:TypeArguments="sd:DataRow[]" Name="WI5List" />
+      <Variable x:TypeArguments="sd:DataTable" Name="ExtractedWI5" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <aw:Download_all_work_items DisplayName="Download all work items" ExtractedWorkItemsTable="[ExtractedValue]" sap:VirtualizedContainerService.HintSize="262.4,22.4" sap2010:WorkflowViewState.IdRef="Download_all_work_items_1" />
-    <Assign sap2010:Annotation.AnnotationText="Met les données extraites dans un argument de sortie" sap:VirtualizedContainerService.HintSize="262.4,104" sap2010:WorkflowViewState.IdRef="Assign_1">
+    <aw:Download_all_work_items DisplayName="Download all work items" ExtractedWorkItemsTable="[ExtractedValue]" sap:VirtualizedContainerService.HintSize="333.6,22.4" sap2010:WorkflowViewState.IdRef="Download_all_work_items_1" />
+    <ui:FilterDataTable DataTable="[ExtractedValue]" DisplayName="Filter WI5 Rows" FilterRowsMode="Keep" sap:VirtualizedContainerService.HintSize="333.6,60" sap2010:WorkflowViewState.IdRef="FilterDataTable_1" OutputDataTable="[ExtractedWI5]" SelectColumnsMode="Keep">
+      <ui:FilterDataTable.Filters>
+        <scg:List x:TypeArguments="ui:FilterOperationArgument" Capacity="4">
+          <ui:FilterOperationArgument BooleanOperator="And" Operator="EQ">
+            <ui:FilterOperationArgument.Column>
+              <InArgument x:TypeArguments="x:String">["Type"]</InArgument>
+            </ui:FilterOperationArgument.Column>
+            <ui:FilterOperationArgument.Operand>
+              <InArgument x:TypeArguments="x:String">["WI5"]</InArgument>
+            </ui:FilterOperationArgument.Operand>
+          </ui:FilterOperationArgument>
+          <ui:FilterOperationArgument BooleanOperator="And" Operator="EQ">
+            <ui:FilterOperationArgument.Column>
+              <InArgument x:TypeArguments="x:String">["Status"]</InArgument>
+            </ui:FilterOperationArgument.Column>
+            <ui:FilterOperationArgument.Operand>
+              <InArgument x:TypeArguments="x:String">["Open"]</InArgument>
+            </ui:FilterOperationArgument.Operand>
+          </ui:FilterOperationArgument>
+        </scg:List>
+      </ui:FilterDataTable.Filters>
+      <ui:FilterDataTable.SelectColumns>
+        <scg:List x:TypeArguments="InArgument" Capacity="4">
+          <x:Null />
+        </scg:List>
+      </ui:FilterDataTable.SelectColumns>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:FilterDataTable>
+    <Assign sap2010:Annotation.AnnotationText="Met les données extraites dans un argument de sortie" sap:VirtualizedContainerService.HintSize="333.6,104" sap2010:WorkflowViewState.IdRef="Assign_1">
       <Assign.To>
-        <OutArgument x:TypeArguments="sd:DataTable">[out_WorkItems]</OutArgument>
+        <OutArgument x:TypeArguments="sd:DataTable">[out_WI5]</OutArgument>
       </Assign.To>
       <Assign.Value>
-        <InArgument x:TypeArguments="sd:DataTable">[ExtractedValue]</InArgument>
+        <InArgument x:TypeArguments="sd:DataTable">[ExtractedWI5]</InArgument>
       </Assign.Value>
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
