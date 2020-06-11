@@ -1,1 +1,1 @@
-{"OpenedDocuments":"[\"Main.xaml\"]","ProjectBreakpoints":"{\"Value\":{}}","ProjectWatches":"{\"Value\":[]}"}
+{"OpenedDocuments":"[\"Main.xaml\",\"Secure Login into Acme.xaml\"]","ProjectBreakpoints":"{\"Value\":{\"Secure Login into Acme.xaml\":[{\"ConditionalExpression\":null,\"ActionExpression\":null,\"ExpectedHitCounter\":null,\"ShouldContinueAfterAction\":false,\"IsEnabled\":true,\"ActivityIdRef\":\"SendMail_1\",\"ActivityId\":\"1.9\",\"ActivityName\":\"Send SMTP Mail Message\"}]}}","ProjectWatches":"{\"Value\":[]}"}
