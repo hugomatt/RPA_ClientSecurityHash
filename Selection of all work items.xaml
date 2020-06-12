@@ -5,7 +5,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>724.8,524</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>831.2,524</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Selection_of_all_work_Items_V2_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -59,7 +59,7 @@
       <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Selection_of_all_work_Items_V2" sap:VirtualizedContainerService.HintSize="375.2,359.2" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Sequence WI5 extract" sap:VirtualizedContainerService.HintSize="375.2,359.2" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="sd:DataTable" Name="ExtractedValue" />
       <Variable x:TypeArguments="sd:DataTable" Name="ExtractedWI5" />
@@ -103,7 +103,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:FilterDataTable>
-    <Assign sap2010:Annotation.AnnotationText="Met les données extraites dans un argument de sortie" sap:VirtualizedContainerService.HintSize="333.6,104" sap2010:WorkflowViewState.IdRef="Assign_1">
+    <Assign sap2010:Annotation.AnnotationText="Met les données extraites dans un argument de sortie" DisplayName="Assign Out WI5" sap:VirtualizedContainerService.HintSize="333.6,104" sap2010:WorkflowViewState.IdRef="Assign_1">
       <Assign.To>
         <OutArgument x:TypeArguments="sd:DataTable">[out_WI5]</OutArgument>
       </Assign.To>
